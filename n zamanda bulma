@@ -1,0 +1,54 @@
+#include <iostream>
+
+using namespace std;
+
+int bco = 0 ;
+int count = 0 ;
+int main()
+{
+    int n , i = 0 ;
+    cout << "girmek istediginiz array uzunlugu ? " << endl ;
+    cin >> n ;
+    char *a = new char [ n ];
+    cout << n <<" tane buyuk harf giriniz " << endl ;
+    while ( i < n )
+    {
+        cin >> a[i];
+
+        if ( a[i] >= 'a' && a[i] <= 'z'  )
+        {
+            cout << "kucuk harf girdiniz ,buyuk harf olmali !" << endl ;
+        }
+        else if ( a[i] >= 'A' && a[i] <= 'Z' )
+        {
+            i++;
+        }
+         else if (!( a[i] >= 'A' && a[i] <= 'Z' ))
+        {
+            cout << "yanlis girdiniz lütfen buyuk bir harf giriniz " << endl ;
+        }
+
+    }
+    cout << "girme isleminiz tamamlanmistir " << endl ;
+
+    for( i = 0 ; i < n ; i++ )
+    {
+        if ( a[ i ] == 'B' )
+        bco ++ ;
+    }
+    for( i = 0 ; i < n ; i++ )
+    {
+        if ( a[ i ] == 'A' )
+        {
+          count = bco + count ;
+        }
+        else if ( a[ i ] == 'B' )
+        {
+            bco --;
+        }
+    }
+    cout << " A-B olma olasılığı  " << count << endl ;
+
+
+    return 0;
+}
